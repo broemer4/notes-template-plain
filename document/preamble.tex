@@ -5,44 +5,45 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{mdframed}
+\usepackage{color}
+
 
 % Page margins
 \usepackage[margin=1in]{geometry}
 
 % Header and footer
 \usepackage{fancyhdr}
-\usepackage{color}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{My Name}
-\lhead{My Title}
+\lhead{"Document-Type"} % Change Document-Type here
+\rhead{"Subject"} % Change Subject here
 \rfoot{\thepage}
 
 % Theorem styles and environments
 \newtheorem{definition}{Definition}[section]
 \newenvironment{fdefinition}
-{\begin{mdframed}[backgroundcolor=black!20]
+{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!20] % Change color and transparency of the boxbackground here
      \begin{definition}}
      {\end{definition}
 \end{mdframed}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newenvironment{ftheorem}
-{\begin{mdframed}[backgroundcolor=black!20]
+{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!20] % Change color and transparency of the boxbackground here
      \begin{theorem}}
      {\end{theorem}
 \end{mdframed}}
 
 \newtheorem{lemma}{Lemma}[section]
 \newenvironment{flemma}
-{\begin{mdframed}[backgroundcolor=black!10]
+{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!10] % Change color and transparency of the boxbackground here
      \begin{lemma}}
      {\end{lemma}
 \end{mdframed}}
 
 \newtheorem{corollary}{Corollary}[section]
 \newenvironment{fcorollary}
-{\begin{mdframed}[backgroundcolor=black!10]
+{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!10] % Change color and transparency of the boxbackground here
      \begin{corollary}}
      {\end{corollary}
 \end{mdframed}}
