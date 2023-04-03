@@ -1,0 +1,51 @@
+% preamble.tex
+
+% Packages
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+% Page margins
+\usepackage[margin=1in]{geometry}
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{My Name}
+\lhead{My Title}
+\rfoot{\thepage}
+
+% Theorem styles and environments
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+
+% Proof environment and symbol
+\newcommand{\qed}{\hfill $\square$}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+                                     \item[\hskip \labelsep {\bfseries #1}]}{\qed
+\end{trivlist}}
+
+% Box environment for definitions, theorems, and corollaries
+\usepackage{environ}
+\usepackage{xcolor}
+\definecolor{mygray}{gray}{0.9}
+\NewEnviron{boxedtheorem}[1]{%
+    \noindent\begin{tikzpicture}
+                 [baseline={(title.base)},outer sep=0pt]
+                 \node[inner sep=0pt,text width=\linewidth-8pt] (box) {\begin{minipage}{\linewidth}
+                                                                           \BODY
+                 \end{minipage}};
+                 \node[draw=black,fill=mygray,inner sep=4pt,anchor=north west] (title) at (box.north west) {\textbf{#1}};
+                 \draw[black] (title.south west) rectangle (box.south east);
+    \end{tikzpicture}\par%
+}
+
+% Redefine theorem environment to use the new boxedtheorem environment
+\makeatletter
+\let\old@theorem\@theorem
+\def\@theorem[#1]#2{\old@theorem[#1]{#2}\@ifnextchar\qed{\@endtheorem}{\end{boxedtheorem}\ignorespaces}}
+\makeatother
