@@ -3,19 +3,19 @@
 \subsection{Group Theory}
 
 % Definition
-\begin{definition}[Group]
+\begin{fdefinition}[Group]
     A group $(G,\cdot)$ consists of a set $G$ and an operation $\cdot: G \times G \rightarrow G$, satisfying the following properties:
     \begin{enumerate}
         \item Associativity: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a,b,c \in G$
         \item Identity element: There exists an element $e \in G$ such that $a \cdot e = e \cdot a = a$ for all $a \in G$
         \item Inverse element: For each $a \in G$, there exists an element $a^{-1} \in G$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$
     \end{enumerate}
-\end{definition}
+\end{fdefinition}
 
 % Theorem
-\begin{theorem}[Lagrange's Theorem]
+\begin{ftheorem}[Lagrange's Theorem]
     Let $G$ be a finite group and $H$ be a subgroup of $G$. Then the order of $H$ divides the order of $G$.
-\end{theorem}
+\end{ftheorem}
 
 % Proof
 \begin{proof}
@@ -23,9 +23,9 @@
 \end{proof}
 
 % Corollary
-\begin{corollary}
+\begin{fcorollary}
     Let $G$ be a finite group and $a \in G$. Then $a^{|G|} = e$, where $e$ is the identity element of $G$.
-\end{corollary}
+\end{fcorollary}
 
 % Proof
 \begin{proof}

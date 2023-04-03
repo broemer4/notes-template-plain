@@ -4,12 +4,14 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tikz}
 \usepackage{hyperref}
+\usepackage{mdframed}
 
 % Page margins
 \usepackage[margin=1in]{geometry}
 
 % Header and footer
 \usepackage{fancyhdr}
+\usepackage{color}
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{My Name}
@@ -18,9 +20,33 @@
 
 % Theorem styles and environments
 \newtheorem{definition}{Definition}[section]
+\newenvironment{fdefinition}
+{\begin{mdframed}[backgroundcolor=black!20]
+     \begin{definition}}
+     {\end{definition}
+\end{mdframed}}
+
 \newtheorem{theorem}{Theorem}[section]
+\newenvironment{ftheorem}
+{\begin{mdframed}[backgroundcolor=black!20]
+     \begin{theorem}}
+     {\end{theorem}
+\end{mdframed}}
+
 \newtheorem{lemma}{Lemma}[section]
+\newenvironment{flemma}
+{\begin{mdframed}[backgroundcolor=black!10]
+     \begin{lemma}}
+     {\end{lemma}
+\end{mdframed}}
+
 \newtheorem{corollary}{Corollary}[section]
+\newenvironment{fcorollary}
+{\begin{mdframed}[backgroundcolor=black!10]
+     \begin{corollary}}
+     {\end{corollary}
+\end{mdframed}}
+
 \newtheorem{example}{Example}[section]
 
 % Proof environment and symbol
@@ -28,24 +54,3 @@
 \newenvironment{proof}[1][Proof]{\begin{trivlist}
                                      \item[\hskip \labelsep {\bfseries #1}]}{\qed
 \end{trivlist}}
-
-% Box environment for definitions, theorems, and corollaries
-\usepackage{environ}
-\usepackage{xcolor}
-\definecolor{mygray}{gray}{0.9}
-\NewEnviron{boxedtheorem}[1]{%
-    \noindent\begin{tikzpicture}
-                 [baseline={(title.base)},outer sep=0pt]
-                 \node[inner sep=0pt,text width=\linewidth-8pt] (box) {\begin{minipage}{\linewidth}
-                                                                           \BODY
-                 \end{minipage}};
-                 \node[draw=black,fill=mygray,inner sep=4pt,anchor=north west] (title) at (box.north west) {\textbf{#1}};
-                 \draw[black] (title.south west) rectangle (box.south east);
-    \end{tikzpicture}\par%
-}
-
-% Redefine theorem environment to use the new boxedtheorem environment
-\makeatletter
-\let\old@theorem\@theorem
-\def\@theorem[#1]#2{\old@theorem[#1]{#2}\@ifnextchar\qed{\@endtheorem}{\end{boxedtheorem}\ignorespaces}}
-\makeatother
