@@ -1,58 +1,50 @@
 % preamble.tex
 
 % Packages
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{mdframed}
 \usepackage{color}
+\usepackage{physics}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{extarrows}
+\usepackage{booktabs}
 
+% TikZ Packages
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+
+% Select language
+\usepackage[ngerman]{babel}
 
 % Page margins
 \usepackage[margin=1in]{geometry}
 
 % Header and footer
-\usepackage{fancyhdr}
-\usepackage{lipsum}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{"Document-Type"} % Change Document-Type here
 \rhead{"Subject"} % Change Subject here
 \rfoot{\thepage}
 
-% Theorem styles and environments
-\newtheorem{definition}{Definition}[section]
-\newenvironment{fdefinition}
+% Box styles and environments
+\newtheorem{box}{Box}[section]
+\newenvironment{fbox}
 {\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!20] % Change color and transparency of the boxbackground here
-     \begin{definition}}
-     {\end{definition}
+     \begin{box}}
+     {\end{box}
 \end{mdframed}}
-
-\newtheorem{theorem}{Theorem}[section]
-\newenvironment{ftheorem}
-{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!20] % Change color and transparency of the boxbackground here
-     \begin{theorem}}
-     {\end{theorem}
-\end{mdframed}}
-
-\newtheorem{lemma}{Lemma}[section]
-\newenvironment{flemma}
-{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!10] % Change color and transparency of the boxbackground here
-     \begin{lemma}}
-     {\end{lemma}
-\end{mdframed}}
-
-\newtheorem{corollary}{Corollary}[section]
-\newenvironment{fcorollary}
-{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!10] % Change color and transparency of the boxbackground here
-     \begin{corollary}}
-     {\end{corollary}
-\end{mdframed}}
-
-\newtheorem{example}{Example}[section]
-
-% Proof environment and symbol
-\newcommand{\qed}{\hfill $\square$}
-\newenvironment{proof}[1][Proof]{\begin{trivlist}
-                                     \item[\hskip \labelsep {\bfseries #1}]}{\qed
-\end{trivlist}}
