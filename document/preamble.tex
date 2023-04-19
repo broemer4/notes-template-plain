@@ -21,6 +21,8 @@
 \usepackage{tabularx}
 \usepackage{extarrows}
 \usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
 
 % TikZ Packages
 \usetikzlibrary{fadings}
@@ -40,11 +42,3 @@
 \lhead{"Document-Type"} % Change Document-Type here
 \rhead{"Subject"} % Change Subject here
 \rfoot{\thepage}
-
-% Box styles and environments
-\newtheorem{box}{Box}[section]
-\newenvironment{fbox}
-{\begin{mdframed}[innertopmargin=-5pt, skipabove=0pt, backgroundcolor=black!20] % Change color and transparency of the boxbackground here
-     \begin{box}}
-     {\end{box}
-\end{mdframed}}
